@@ -1,0 +1,4 @@
+
+export const CREATE_CONVERSATION = 'CREATE_CONVERSATION'
+export const ADD_MESSAGE = 'ADD_MESSAGE'
+

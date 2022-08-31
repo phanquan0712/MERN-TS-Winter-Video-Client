@@ -1,6 +1,6 @@
 import React from 'react'
-import MessageContent from '../components/message/MessageContent'
-import Conversation from '../components/message/Conversation'
+import MessageContent from '../../components/message/MessageContent'
+import Conversation from '../../components/message/Conversation'
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
 
