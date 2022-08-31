@@ -1,0 +1,142 @@
+.auth_page {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   display: none;
+   z-index: 15;
+}
+.auth_page.active {
+   display: block;
+}
+
+.auth_page.active .auth_overlay {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 100%;
+   height: 100vh;
+   background-color: rgba(0, 0, 0, 0.5);
+   animation: auth_overlay_animation 500ms cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
+}
+
+@keyframes auth_overlay_animation {
+   0% {
+      height: 0;
+   }
+
+   100% {
+      height: 100vh;
+   }
+}
+
+@keyframes auth_box_animation {
+   0% {
+      width: 0;
+      height: 0;
+      opacity: 0;
+   }
+
+   100% {
+      opacity: 1;
+      width: 400px;
+      height: 650px;
+   }
+}
+
+.auth_page.active .auth_box {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   opacity: 1;
+   width: 400px;
+   height: 650px;
+   transform: translate(-50%, -50%);
+   max-height: calc(100vh - 200px);
+   background-color: #ffffff;
+   padding: 15px 25px;
+   border-radius: 10px;
+   animation: auth_box_animation 500ms cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
+}
+
+.auth_page .auth_box .auth_box-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.auth_page .auth_box .auth_box-header i {
+   font-size: 25px;
+   cursor: pointer;
+}
+
+.auth_page .auth_box .auth_box-header div {
+   width: 30px;
+   height: 30px;
+   position: relative;
+   background-color: #eee;
+   border-radius: 50%;
+   cursor: pointer;
+}
+
+.auth_page .auth_box .auth_box-header div span {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -60%);
+   font-size: 20px;
+   font-weight: bold;
+}
+
+.auth_box .auth_box-title {
+   text-align: center;
+   margin: 16px 0;
+   font-size: 25px;
+   font-weight: bold;
+}
+
+.auth_box .auth_list {
+   height: 350px;
+}
+
+
+.auth_box .auth_list-item {
+   padding: 8px 16px;
+   position: relative;
+   border: 1px solid #ccc;
+   cursor: pointer;
+   text-align: center;
+   margin-bottom: 20px;
+}
+
+.auth_box .auth_list-item i {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   left: 10px;
+}
+
+.auth_box .auth_list-item span {
+   font-size: 16px;
+   font-weight: 500;
+}
+
+.auth_box .auth_box-footer {
+   text-align: center;
+   padding-bottom: 8px;
+   font-size: 16px;
+}
+
+.pass {
+   position: relative;
+}
+
+.pass small {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   right: 10px;
+   cursor: pointer;
+}

@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+img {
+  object-fit: cover;
+}
+
+/* Header */
+@import url('./header.css');
+/* Avatar */
+@import url('./avatar.css');
+/* Auth */
+@import url('./auth.css');
+/* Toast */
+@import url('./toast.css');
+/* Active Account */
+@import url('./active.css');
+/* Left Side */
+@import url('./leftSide.css');
+/* Profile */
+@import url('./profile.css');
+/* Upload*/
+@import url('./upload.css');
+/* Footer */
+@import url('./footer.css');
+/* Card Post */
+@import url('./card_post.css');
+/* Detail Post */
+@import url('./detail_post.css');
+/* Comment */
+@import url('./comment.css');
+/* Post Thumb */
+@import url('./post_thumb.css');
+/* Message */
+@import url('./message.css');

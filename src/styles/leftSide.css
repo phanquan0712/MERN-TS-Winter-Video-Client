@@ -1,0 +1,116 @@
+.left_side {
+   position: fixed;
+   width: 340px;
+   min-height: 100%;
+   animation:  left_side .2s ease-in-out;
+}
+
+@keyframes left_side {
+   0% {
+      opacity: 0;
+      z-index: -1;
+      transform: translateX(-100%);
+   }
+   100% {
+      opacity: 1;
+      z-index: none;
+      transform: translateX(0px);
+   }
+}
+
+.left_side .left_side-nav {
+   padding: 12px 0;
+   text-align: start;
+}
+
+.left_side .left_side-nav-item {
+   display: flex !important;
+   text-decoration: none;
+   color: #333;
+   padding: 12px;
+   transition: all 0.2s;
+}
+
+.left_side .left_side-nav-item.active {
+   color: #fe2c55;
+}
+
+.left_side .left_side-nav-item:hover {
+   background-color: #dddd;
+}
+
+.left_side .left_side-nav-item  svg{
+   font-size: 26px;
+   margin-right: 10px;
+}
+
+.left_side .left_side-nav-item  span{
+   font-size: 18px;
+   font-weight: 700;
+}
+
+
+.list_user {
+   border-top: 1px solid #ddd;
+}
+
+.list_user_title {
+   color: #9b9da1;
+   font-size: 14px;
+   font-weight: 500;
+   padding: 12px;
+}
+
+.list_user .list_user_item {
+   cursor: pointer;
+   padding: 8px;
+   text-decoration: none;
+   transition: all 0.2s;
+}
+
+.list_user .list_user_item:hover {
+   background-color: #dddd;
+}
+
+.list_user .list_user_item_info {
+   margin-left: 10px;
+   transform: translateY(1px);
+}
+
+.list_user .list_user_item_info .list_user_item_info_winterId {
+   font-size: 1rem !important;
+   font-weight: bold;
+   margin-bottom: 0;
+   color: #333;
+}
+
+.list_user .list_user_item_info .list_user_item_info_name {
+   font-size: 0.9rem !important;
+   font-weight: 300;
+   margin-bottom: 0;
+   color: #999;
+}
+
+/* .list_user_item:hover .preview_user {
+   display: block;
+} */
+
+.preview_user {
+   position: absolute;
+   left: 0;
+   top: 100%;
+   background: #fff;
+   box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+   min-width: 320px;
+   padding: 16px !important;
+   z-index: 20;
+   border-radius: 10px;
+   transition: display .2s linear;
+   cursor: auto;
+}
+
+.preview_user p {
+   margin-bottom: 0;
+   color: #333;
+   font-size: 16px;
+}

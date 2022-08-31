@@ -1,0 +1,47 @@
+.active_account  {
+   width: 100%;
+   height: calc(100vh - 70px);
+   position: relative;
+   background: linear-gradient(to right, #FFA07A, #9FE2BF);
+}
+
+.active_account .active_box {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -80%);
+   padding: 25px 25px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+   text-align: center;
+   border-radius: 10px;
+   background-color: #fff
+}
+
+.active_account .active_box h2 {
+   font-size: 35px;
+   margin-bottom: 30px;
+   letter-spacing: 5px;
+}
+
+.active_account .active_box .success {
+   color: #4caf50;
+   font-size: 18px;
+   margin-bottom: 30px;
+}
+
+.active_account .active_box .error {
+   color: #f44336;
+   font-size: 18px;
+   margin-bottom: 30px;
+} 
+
+.active_account .active_box a {
+   text-decoration: none;
+   color: #000;
+   padding: 12px 16px;
+   border: 1px solid #ccc;
+}
+
+.active_account .active_box a:hover {
+   background-color: #ddd;
+}

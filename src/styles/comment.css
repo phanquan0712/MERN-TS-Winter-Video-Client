@@ -1,0 +1,159 @@
+.list_comment {
+   background: #eee;
+   padding: 24px 32px;
+   overflow: hidden auto;
+   border-top: 1px solid #ddd;
+   border-bottom: 1px solid #ddd;
+}
+
+.list_comment::-webkit-scrollbar {
+   display: none;
+}
+
+
+.list_comment .card_comment {
+   display: flex;
+   justify-content: space-between;
+   align-items: start;
+   margin-bottom: 16px;
+}
+
+.list_comment .card_comment .container {
+   display: flex;
+   flex-direction: column;
+   transform: translateY(-6px);
+}
+
+.list_comment .card_comment .container p {
+   margin-bottom: 0;
+   font-size: 16px;
+   font-weight: 386;
+   color: #333;
+}
+
+.list_comment .card_comment .container p:first-child {
+   font-size: 18px;
+   font-weight: bold;
+   cursor: pointer;
+   text-decoration: none;
+   text-align: start;
+}
+
+.list_comment .card_comment .container p:first-child:hover {
+   text-decoration: underline;
+}
+
+.list_comment .card_comment .sub_content {
+   opacity: 0.6;
+   font-size: 14px;
+   color: #333;
+   margin-top: 5px;
+}
+
+.list_comment .card_comment .sub_content .reply_container p {
+   font-size: 14px;
+   font-weight: 600;
+}
+
+.list_comment .card_comment .sub_content span:last-child {
+   cursor: pointer;
+}
+
+.list_comment .card_comment .actions {
+   /* opacity: 0.6; */
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   font-weight: 300;
+   cursor: pointer;
+}
+
+.comment_root .comment_root_actions .more {
+   opacity: 0;
+}
+
+
+.comment_root:hover .comment_root_actions .more {
+   opacity: 1;
+} 
+
+.actions .dropdown-toggle::after {
+   display: none;
+}
+
+
+.answer .actions .more {
+   opacity: 0;
+   
+}
+
+.answer:hover .actions .more {
+   opacity: 1;
+}
+
+
+
+.comment_dropdown {
+   opacity: 1 !important;
+   position: absolute;
+   background: #fff;
+   list-style: none;
+   padding-left: 0;
+   padding: 10px 0px;
+   width: 120px;
+   top: 25px;
+   right: 0;
+   border-radius: 5px;
+   margin-bottom: 0;
+}
+
+
+
+
+.comment_dropdown li {
+   padding: 5px 10px;
+   cursor: pointer;
+   color: #000;
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   font-size: 18px;
+   font-weight: 600;
+}
+
+.comment_dropdown li:hover {
+   background: #eee;
+   color: crimson;
+}
+
+.delete_comment {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100vh;
+   background: rgba(0,0,0,0.5);
+}
+
+.delete_comment_box {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 360px;
+   height: 200px;
+   background: #fff;
+   border-radius: 10px;
+   animation: delete_comment_box .1s ease-in-out;
+}
+
+@keyframes delete_comment_box {
+   0% {
+      opacity: 0;
+      height: 0;
+   }
+   100% {
+      opacity: 1;
+      height: 200px;
+   }
+}

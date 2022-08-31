@@ -1,0 +1,30 @@
+.footer {
+   background: #000;
+   color: #fff;
+   margin: 0 !important;
+}
+
+.footer_box {
+   margin: 0 auto;
+   padding: 40px 0;
+}
+
+.footer .footer_logo {
+   font-size: 26px;
+   font-weight: bold;
+   background: linear-gradient(to right , #c7f681, #5719f54d);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   display: inline-block;
+   margin-right: 15px;
+}
+
+.footer_box ul {
+   padding-left: 0 !important;
+   list-style: none;
+   font-size: 16px;
+}
+
+.footer_box ul li a {
+   color:  #fff;
+}

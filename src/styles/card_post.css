@@ -1,0 +1,230 @@
+.list_post {
+   padding: 24px 0;
+   animation: ListPost 0.2s ease-in-out;
+   ;
+}
+
+
+@keyframes ListPost {
+   0% {
+      opacity: 0;
+      z-index: -1;
+      transform: translateX(100%);
+   }
+
+   100% {
+      opacity: 1;
+      z-index: none;
+      transform: translateX(0px);
+   }
+}
+
+.card_post {
+   display: flex;
+   padding: 20px 0;
+   border-bottom: 1px solid #ddd;
+}
+
+.card_post_content {
+   margin-left: 30px;
+   display: flex;
+   flex: 1;
+   flex-direction: column;
+   width: 624px;
+}
+
+.card_post_info {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 12px;
+}
+
+.card_post_info .card_post_author a {
+   display: flex;
+   text-decoration: none;
+   color: #333;
+   align-items: end;
+   gap: 10px;
+   margin-bottom: 8px;
+}
+
+.card_post_info .card_post_author a h3 {
+   font-size: 18px;
+   font-weight: bold;
+}
+
+.card_post_info .card_post_author a h3:hover {
+   text-decoration: underline;
+}
+
+.card_post_info .card_post_author a h4 {
+   font-size: 14px;
+   font-weight: 400;
+   transform: translateY(-2px);
+}
+
+.card_post_info .card_post_desc {
+   font-size: 16px;
+   text-align: left;
+   margin-bottom: 8px;
+   margin-right: 120px;
+}
+
+.card_post_info .card_post_desc strong {
+   margin-left: 5px;
+   cursor: pointer;
+}
+
+.card_post_info .card_post_desc strong:hover {
+   text-decoration: underline;
+}
+
+.card_post_music {
+   font-size: 16px;
+   text-align: left;
+   cursor: pointer;
+   font-weight: 500;
+}
+
+.card_post_music:hover {
+   text-decoration: underline;
+}
+
+.card_post_info .fl-btn {
+   position: absolute;
+   top: 10px;
+   right: 5px;
+}
+
+.card_post_video {
+   display: flex;
+}
+
+.card_post_video .card_post_video-container {
+   height: calc(500px + (100vw - 768px) / 1152 * 100);
+   margin-right: 30px;
+}
+
+.card_post_video .card_post_video-container video {
+   width: 100%;
+   height: 100%;
+   border-radius: 10px;
+   display: block;
+   object-fit: cover;
+}
+
+.card_post_video .card_post_video-actions {
+   display: flex;
+   flex-direction: column;
+   justify-content: end;
+   gap: 5px;
+}
+
+.card_post_video .card_post_video-actions button {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 0 !important;
+}
+
+.card_post_video .card_post_video-actions button:hover span {
+   background: rgb(222, 222, 222);
+}
+
+.card_post_video .card_post_video-actions button span {
+   font-size: 18px;
+   width: 48px;
+   height: 48px;
+   background: #eee;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 50%;
+   margin-bottom: 4px;
+   transition: all 0.2s ease-in-out;
+}
+
+.card_post_video .card_post_video-actions button strong {
+   font-size: 14px;
+   font-weight: 500;
+}
+
+.video_custom {
+   position: relative;
+   color: #fff;
+   cursor: pointer;
+}
+
+.video_custom .video_custom_controls{
+   display: none;
+   transition: all 0.2s ease-in-out;
+}
+
+.video_custom:hover .video_custom_controls{
+   display: block;
+}
+
+
+.video_custom_controls .pause_video,
+.video_custom_controls .play_video {
+   position: absolute;
+   bottom: 30px;
+   left: 20px;
+}
+
+.volume_video {
+   position: absolute;
+   bottom: 30px;
+   right: 20px;
+}
+
+.volume_video div svg {
+   color: #fff;
+   cursor: pointer;
+}
+
+.volume_video:hover .slider_volume {
+   display: block;
+}
+
+.volume_video .slider_volume {
+   -webkit-appearance: none;
+   position: absolute;
+   transform: rotate(270deg);
+   top: -25px;
+   left: -12px;
+   display: none;
+   height: 4px;
+   width: 50px;
+   border: none;
+   border-radius: 3px;
+   background: #ddd;
+   cursor: pointer;
+   transition: display 0.2s ease-in-out;
+}
+
+
+.volume_video .slider_volume::-webkit-slider-thumb {
+   -webkit-appearance: none;
+   width: 10px;
+   height: 10px;
+   border-radius: 50%;
+   background: #fff;
+   cursor: pointer;
+}
+
+
+
+
+.video_custom_controls svg {
+   cursor: pointer;
+   width: 24px;
+   height: 24px;
+   transition: background 0.2s ease-in-out;
+   border-radius: 50%;
+}
+
+.video_custom_controls svg:hover {
+   background: rgba(0, 0, 0, 0.2);
+}
