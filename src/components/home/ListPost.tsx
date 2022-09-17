@@ -12,7 +12,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import { IParams } from '../../utils/Typescript'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import { auth } from 'google-auth-library'
 import { AUTH_MODAL } from '../../redux/types/authType'
 
 
