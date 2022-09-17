@@ -1,7 +1,7 @@
 .toast {
    top: 0;
-   left: 50%;
-   transform: translate(-50%, -1000px) !important;
+   right: 20px;
+   transform: translate(0, -1000px) !important;
    opacity: 0 !important;
    z-index: 11;
    transition: top 0.3s ease-in-out, transform 0.3s ease-in-out, opacity 0.3s ease-in-out !important;

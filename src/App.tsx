@@ -43,10 +43,10 @@ function App() {
 
 
   useEffect(() => {
-    dispatch(refreshToken());
+    dispatch(refreshToken())
     const socket = io(API_URL)
     dispatch({ type: SOCKET, payload: socket })
-    return () => {socket.close()}
+    return () => { socket.close() }
   }, [dispatch])
 
   useEffect(() => {
@@ -76,14 +76,6 @@ function App() {
   return (
     <div className="App">
       <div style={{ display: 'none' }}>
-        {
-          alert.error &&
-          toast.error(alert.error)
-        }
-        {
-          alert.success &&
-          toast.success(alert.success)
-        }
         {auth.access_token && <SocketClient />}
       </div>
       <Router>
