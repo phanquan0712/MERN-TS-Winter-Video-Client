@@ -1,13 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { IPost, IPostThumb, RootStore } from '../../utils/Typescript'
+import FollowBtn from '../global/FollowBtn'
+import Avatar from '../global/Avatar'
+import { useSelector, useDispatch } from 'react-redux'
 
 interface IProps {
-   src: string
+   post: IPostThumb | IPost
    id: string
+   page: string
 }
 
-const CardVideo = ({ src, id }: IProps) => {
+const CardVideo = ({ post, id, page }: IProps) => {
    const videoRef = useRef<HTMLVideoElement>(null)
+   const { auth } = useSelector((state: RootStore) => state)
    const navigate = useNavigate()
    useEffect(() => {
       if (videoRef.current) {
@@ -36,17 +42,43 @@ const CardVideo = ({ src, id }: IProps) => {
 
 
    const handleNavigate = () => {
-      navigate(`/post/${id}`)
+      if(window.innerWidth < 768) return;
+      if(auth.access_token && auth.user) {
+         return navigate(`/post/${id}`)
+      } else {
+         return navigate(`/profile/${(post as IPost).user?._id}`)
+      }
    }
 
    return (
-      <video
-         muted
-         onClick={handleNavigate}
-         ref={videoRef}
-         src={src}
-         className='w-100 h-100 video_thumb' 
-      />
+      <>
+         {
+            page === 'following' ?
+            <div className='card_video_follow'>
+               <video
+                  muted
+                  onClick={handleNavigate}
+                  ref={videoRef}
+                  src={post.video}
+                  className='w-100 h-100 video_thumb'
+               />
+               <div className='card_video_info'>
+                  <Avatar src={(post as IPost).user?.avatar} size='big' />
+                  <h6>{(post as IPost).user?.name}</h6>
+                  <p>{(post as IPost).user?.winterId}</p>
+                  <FollowBtn user={(post as IPost).user} width='160px' color='danger' />
+               </div>
+            </div>
+            :
+               <video
+                  muted
+                  onClick={handleNavigate}
+                  ref={videoRef}
+                  src={post.video}
+                  className='w-100 h-100 video_thumb'
+               />
+         }
+      </>
    )
 }
 

@@ -4,6 +4,7 @@ import {
   DELETE_COMMENT_POST,
   DELETE_ANSWER_COMMENT_POST,
   UPDATE_POST,
+  DELETE_POST,
 } from "./../types/postType";
 import {
   GET_DETAIL_POST,
@@ -12,6 +13,7 @@ import {
   CREATE_ANSWER_COMMENT_POST,
 } from "../types/postType";
 import { IPost, IComment } from "../../utils/Typescript";
+
 
 const detailPostReducecr = (state: IPost = {} as IPost, action: IPostType) => {
   switch (action.type) {
@@ -84,6 +86,7 @@ const detailPostReducecr = (state: IPost = {} as IPost, action: IPostType) => {
         ...state,
         ...action.payload,
       };
+    
     default:
       return state;
   }

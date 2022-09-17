@@ -14,7 +14,7 @@ const ListComment = ({ post }: IProps) => {
       <>
       {
          detailPost.isComment ? 
-      <div className="list_comment mt-3 h-100">
+         <div className="list_comment mt-3 h-100">
          {
             post.comments &&
             post.comments.map((comment) => (

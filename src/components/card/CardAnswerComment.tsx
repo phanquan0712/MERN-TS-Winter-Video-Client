@@ -18,7 +18,7 @@ interface IProps {
    comment: IComment
 }
 const CardAnswerComment = ({ comment }: IProps) => {
-   const { auth, detailPost } = useSelector((state: RootStore) => state)
+   const { auth, detailPost, socket } = useSelector((state: RootStore) => state)
    const [isLike, setIsLike] = useState<boolean>(false)
    const [isDropdown, setIsDropdown] = useState<boolean>(false)
    const [isDelete, setIsDelete] = useState<boolean>(false)
@@ -64,7 +64,7 @@ const CardAnswerComment = ({ comment }: IProps) => {
    const handleDeleteComment = () => {
       if (auth.access_token && auth.user) {
          setIsDelete(false)
-         dispatch(deleteAnswerComment(comment, auth))
+         dispatch(deleteAnswerComment(comment, auth, socket))
       }
    }
 

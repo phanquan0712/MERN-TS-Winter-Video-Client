@@ -33,10 +33,11 @@ export interface IUser {
    role: string
    type: string
    story: string
+   roleChat: string
    followers: IUser[]
    following: IUser[]
-   liked: IPostThumb[]
-   videos?: IPostThumb[]
+   liked: IPost[]
+   videos: IPost[]
    createdAt?: string
    _doc: Document
 }
@@ -46,6 +47,7 @@ export interface IUpdateProfile {
    winterId: string
    name: string
    story: string
+   roleChat?: string
 }
 
 
@@ -67,6 +69,7 @@ export interface IPost {
 export interface IPostThumb  {
    _id: string
    video: string
+   cover_img?: string
    likes: string[]
 }
 
@@ -83,4 +86,41 @@ export interface IComment {
    reply: IComment[]
    createdAt?: string
    _doc?: Document
+}
+
+
+export interface IUserMess extends IUser {
+   recipients?: IUser[]
+   text?: string
+   nick_name?: string
+   conversationId?: string,
+   _id2?: string, 
+}
+
+export interface IMessage {
+   _id?: string
+   sender: IUser | string
+   recipient: IUser | string
+   text?: string
+   media?: string[]
+   conversation?: string
+   conversation_id?: string
+   call?: any
+   numCode?: number
+   createdAt?: string
+}
+
+export interface INotify {
+   _id?: string;
+   id: string;
+   user?: IUser;
+   recipients: IUser[]
+   url: string;
+   text: string;
+   content?: string;
+   image?: string;
+   isRead?: boolean;
+   typeNotify?: string;
+   createdAt?: string;
+   updatedAt?: string;
 }

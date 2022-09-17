@@ -1,0 +1,77 @@
+:root {
+   --scale: 1.2;
+   --x: 25px;
+}
+
+.div_loading {
+   width: 100%;
+   text-align: center;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.div_loading .circle {
+   height: 25px;
+   width: 25px;
+   border-radius: 50%;
+   animation: c 3s infinite;
+}
+
+.div_loading .left-circle {
+   background-color: #ff0050;
+   box-shadow: 0 0 12px 6px #ff0050;
+   z-index: 1;
+   animation: left-c 1s infinite;
+}
+
+.div_loading .right-circle {
+   background-color: #00f2ea;
+   box-shadow: 0 0 12px 6px #00f2ea;
+   z-index: 2;
+   animation: right-c 1s infinite;
+}
+
+@keyframes left-c {
+   0% {
+      z-index: 1;
+      transform: scale(1) translatex(0);
+   }
+
+   49% {
+      z-index: 1;
+      transform: scale(var(--scale)) translatex(var(--x));
+   }
+
+   51% {
+      z-index: 3;
+      transform: scale(var(--scale)) translatex(var(--x));
+   }
+
+   99% {
+      z-index: 3;
+      transform: scale(1) translatex(0);
+   }
+}
+
+@keyframes right-c {
+   0% {
+      z-index: 2;
+      transform: scale(var(--scale)) translatex(0);
+   }
+
+   49% {
+      z-index: 2;
+      transform: scale(1) translatex(-20px);
+   }
+
+   51% {
+      z-index: 2;
+      transform: scale(1) translatex(-20px);
+   }
+
+   99% {
+      z-index: 2;
+      transform: scale(var(--scale)) translatex(0);
+   }
+}

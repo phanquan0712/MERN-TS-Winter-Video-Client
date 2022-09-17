@@ -15,6 +15,7 @@ import { useLocation } from 'react-router-dom'
 import { AUTH_MODAL } from '../../redux/types/authType'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import ShareModal from '../../components/global/ShareModal'
 
 interface IProps {
    post: IPost
@@ -23,7 +24,7 @@ interface IProps {
 const PostHeader = ({ post }: IProps) => {
    const location = useLocation()
    const [isLike, setIsLike] = useState<boolean>(false)
-   const { auth, detailPost } = useSelector((state: RootStore) => state)
+   const { auth, detailPost, socket } = useSelector((state: RootStore) => state)
    const [swBtn, setSwBtn] = useState<boolean>(false)
    const [isSetting, setIsSetting] = useState<boolean>(false)
    const [roleWatcher, setRoleWatcher] = useState<string>(detailPost.roleWatcher)
@@ -50,7 +51,7 @@ const PostHeader = ({ post }: IProps) => {
       }
       if (!post) return
       if (!isLike) {
-         dispatch(likePost(post, auth))
+         dispatch(likePost(post, auth, socket))
          setIsLike(true)
       } else {
          setIsLike(false)
@@ -66,7 +67,7 @@ const PostHeader = ({ post }: IProps) => {
 
    const handleUpdatePost = () => {
       console.log(roleWatcher, isComment)
-      dispatch(updatePost(roleWatcher, isComment, post._id, auth.access_token))
+      dispatch(updatePost(roleWatcher, isComment, post._id, auth.access_token, socket))
       setIsSetting(false)
    }
 
@@ -127,9 +128,7 @@ const PostHeader = ({ post }: IProps) => {
                   </button>
                </div>
                <div className='share_list'>
-                  <FacebookIcon />
-                  <EmailIcon />
-                  <WhatsAppIcon />
+                  <ShareModal url={`${window.location.origin}/posts/${post._id}`} />
                </div>
             </div>
             <div className="show_link">
@@ -184,7 +183,7 @@ const PostHeader = ({ post }: IProps) => {
                      <div className='form-group d-flex justify-content-between align-items-center mt-4'>
                         <label>Do you want to delete this post?</label>
                         <button className='btn btn-danger'
-                           onClick={() => dispatch(deletePost(post._id, auth))}
+                           onClick={() => dispatch(deletePost(post._id, auth, socket))}
                         >Delete</button>
                      </div>
                      <div className='close_setting_post'

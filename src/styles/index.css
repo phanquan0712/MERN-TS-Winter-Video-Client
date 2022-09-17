@@ -16,6 +16,20 @@ img {
   object-fit: cover;
 }
 
+ul {
+  padding-left: 0 !important
+}
+
+@media (max-width: 768px) {
+  .home {
+    height: calc(100vh - 49px)
+  }
+
+  .home .swiper {
+    height: 100%
+  }
+}
+
 /* Header */
 @import url('./header.css');
 /* Avatar */
@@ -44,3 +58,15 @@ img {
 @import url('./post_thumb.css');
 /* Message */
 @import url('./message.css');
+/* Div Loading*/
+@import url('./div_loading.css');
+/* Card Post Mb */
+@import url('./card_post_mb.css');
+/* Discover */
+@import url('./discover.css');
+/* Notification */
+@import url('./notify.css');
+/* Setting */
+@import url('./setting.css');
+/* ShareModal */
+@import url('./shareModal.css');

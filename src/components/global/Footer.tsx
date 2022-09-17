@@ -4,7 +4,7 @@ import Logo from '../../images/logo.png'
 const Footer = () => {
    return (
       <div className='footer row'>
-         <div className="footer_box container row">
+         <div className={`footer_box container ${window.innerWidth > 768 ? 'row' : ''}`}>
             <div className="col-md-2 footer_logo">
                <h2>Winter</h2>
             </div>

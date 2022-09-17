@@ -10,16 +10,16 @@ const Header = () => {
    const location = useLocation()
    const isActive = () => {
       const path = location.pathname.substring(1, location.pathname.lastIndexOf('/') === 0 ? location.pathname.length : location.pathname.lastIndexOf('/'))
-      if(path === 'profile' || path === 'upload') {
+      if (path === 'profile' || path === 'upload') {
          return ''
-      }else return 'container'
+      } else return 'container set_width'
    }
    return (
       <div className='header'>
-         <nav className={`${isActive()} navbar navbar-expand-lg navbar-light d-flex justify-content-between align-items-center`} style={{
+         <nav className={`${isActive()} navbar-light d-flex justify-content-between align-items-center`} style={{
             position: 'sticky', top: 0, left: 0, zIndex: 9, background: '#ffffff !important',
          }}>
-            <Link to="/" className="navbar-brand logo">
+            <Link to="/" className="navbar-brand logo ml-2">
                <img src={Logo} className='w-100 h-100' alt="Logo" />
             </Link>
             <Search />

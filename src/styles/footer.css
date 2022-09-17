@@ -28,3 +28,41 @@
 .footer_box ul li a {
    color:  #fff;
 }
+
+
+@media (max-width: 768px) {
+   .footer_container {
+      height: 49px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+   }
+
+   .footer_container .left_side-nav {
+      background-color: #000;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      width: 100% !important;
+      padding: 0 !important;
+   }
+
+   .footer_container .left_side-nav a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+   }
+
+   .footer_container .left_side-nav svg {
+      color: #fff;
+      margin-right: 0 !important;
+   }
+
+   .App {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+   }
+}

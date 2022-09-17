@@ -25,8 +25,15 @@
    border-bottom: 1px solid #ddd;
 }
 
+@media (max-width: 768px) {
+   .card_post_content {
+      width: 100% !important;
+      margin-left: 8px;
+   }
+}
+
 .card_post_content {
-   margin-left: 30px;
+   margin-left: 16px;
    display: flex;
    flex: 1;
    flex-direction: column;
@@ -105,6 +112,13 @@
    height: calc(500px + (100vw - 768px) / 1152 * 100);
    margin-right: 30px;
 }
+
+@media (max-width: 768px) {
+   .card_post_video .card_post_video-container {
+      margin-right: 16px;
+   }
+}
+
 
 .card_post_video .card_post_video-container video {
    width: 100%;
@@ -227,4 +241,93 @@
 
 .video_custom_controls svg:hover {
    background: rgba(0, 0, 0, 0.2);
+}
+.avatar_post_mb {
+   display: none;
+}
+
+@media (max-width: 768px) {
+   .card_post .avatar_post {
+      display: none;
+   }
+
+   .card_post .card_post_author {
+      display: flex;
+      width: max-content;
+   }
+
+   .card_post .card_post_author .avatar_post_mb {
+      display: block;
+      margin-right: 10px;
+   }
+
+   .card_post .card_post_author a {
+      display: flex;
+      flex-direction: column;
+      width: max-content;
+   }
+
+   .card_post .card_post_author a h3 {
+      width: 100%;
+   }
+   .card_post .card_post_author a h4 {
+      width: 100%;
+   }
+
+   .card_post_video .card_post_video-actions button span {
+      width: 36px;
+      height: 36px;
+   }
+
+   .upload {
+      display: none;
+   }
+
+   .card_post_content {
+      margin-left: 0;
+   }
+
+
+}
+
+.share_post {
+   position: relative;
+}
+
+.share_post .share_modal {
+   position: absolute;
+   left: 120%;
+   bottom: -160%;
+   flex-direction: column;
+   gap: 12px;
+   background-color: #fff;
+   padding: 10px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+   display: none;
+   transition: all 0.2s ease-in-out forwards;
+}
+
+.share_post:hover .share_modal {
+   display: flex;
+}
+
+.share_post .share_modal::before {
+   content: "";
+   position: absolute;
+   border-width: 20px;
+   border-style: solid;
+   border-color: transparent #fff transparent  transparent;
+   top: 50%;
+   left: -36px;
+   transform: translateY(-50%);
+}
+
+.share_post .share_modal::after {
+   content: '';
+   position: absolute;
+   width: 25px;
+   height: 100%;
+   background-color: transparent;
+   top: 0;
+   left: -25px;
 }

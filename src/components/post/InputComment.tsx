@@ -13,7 +13,7 @@ interface IProps {
 }
 const InputComment = ({ post }: IProps) => {
    const [content, setContent] = useState<string>('')
-   const { auth, tagComment, detailPost } = useSelector((state: RootStore) => state)
+   const { auth, tagComment, detailPost, socket } = useSelector((state: RootStore) => state)
    const dispatch = useDispatch<any>()
    const inputRef = useRef<HTMLInputElement>(null)
    useEffect(() => {
@@ -57,7 +57,7 @@ const InputComment = ({ post }: IProps) => {
                likes: [],
                createdAt: new Date().toISOString()
             }
-            dispatch(createAnswerComment(newComment, tagComment, auth))
+            dispatch(createAnswerComment(newComment, tagComment, auth, socket))
          } else {
             const newComment = {
                user: auth.user,
@@ -70,7 +70,7 @@ const InputComment = ({ post }: IProps) => {
                likes: [],
                createdAt: new Date().toISOString()
             }
-            dispatch(createAnswerComment(newComment, tagComment, auth))
+            dispatch(createAnswerComment(newComment, tagComment, auth, socket))
          }
       } else {
          const newComment = {
@@ -82,7 +82,7 @@ const InputComment = ({ post }: IProps) => {
             likes: [],
             createdAt: new Date().toISOString()
          }
-         dispatch(createComment(newComment, auth))
+         dispatch(createComment(newComment, auth, socket))
       }
       dispatch({ type: ANSWER_COMMENT, payload: {} })
       setContent('')
@@ -90,7 +90,7 @@ const InputComment = ({ post }: IProps) => {
    return (
       <>
          {
-            detailPost.isComment ? 
+            post.isComment ? 
                <form className="input_comment" onSubmit={handleSubmit}>
                   {
                      (auth.user && auth.access_token) ?

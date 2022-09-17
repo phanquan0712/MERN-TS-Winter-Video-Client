@@ -15,6 +15,9 @@ export const login = (data: IUserLogin) => async(dispatch: Dispatch<IAlertType |
          user: res.data.user
       } });
       dispatch({ type: AUTH_MODAL, payload: false  });
+      if(window.innerWidth < 768) {
+         window.location.href = '/foryou';
+      }
       localStorage.setItem('logged', 'winter')
       dispatch({ type: ALERT, payload: { success: 'Login success!' } });
    } catch(err: any) {
@@ -30,6 +33,9 @@ export const register = (data: IUserRegister) => async(dispatch: Dispatch<IAlert
       dispatch({ type: ALERT, payload: { loading: true}})
       const res = await postAPi('register', data);
       dispatch({ type: AUTH_MODAL, payload: false  });
+      if(window.innerWidth < 768) {
+         window.location.href = '/foryou';
+      }
       dispatch({ type: ALERT, payload: { success: res.data.msg}})
    } catch(err: any) {
       dispatch({ type: ALERT, payload: { error: err.response.data.msg }})
@@ -71,6 +77,9 @@ export const googleLogin = (id: string) => async(dispatch: Dispatch<IAuthType | 
          user: res.data.user
       } });
       dispatch({ type: AUTH_MODAL, payload: false  });
+      if(window.innerWidth < 768) {
+         window.location.href = '/foryou';
+      }
       localStorage.setItem('logged', 'winter')
       dispatch({ type: ALERT, payload: { success: 'Login success!' } });
    } catch(err: any) {
@@ -88,6 +97,9 @@ export const facebookLogin = (token: string, id: string) => async(dispatch: Disp
          user: res.data.user
       } });
       dispatch({ type: AUTH_MODAL, payload: false  });
+      if(window.innerWidth < 768) {
+         window.location.href = '/foryou';
+      }
       localStorage.setItem('logged', 'winter')
       dispatch({ type: ALERT, payload: { success: 'Login success!' } });
    } catch(err: any) {

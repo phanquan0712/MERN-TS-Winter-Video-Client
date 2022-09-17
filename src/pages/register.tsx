@@ -1,10 +1,8 @@
 import React from 'react'
-
+import RegisterModal from '../components/auth/RegisterForm'
 const Register = () => {
    return (
-      <div>
-         <h2>Register</h2>
-      </div>
+      <Register />
    )
 }
 

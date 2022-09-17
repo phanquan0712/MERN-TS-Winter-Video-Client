@@ -1,0 +1,56 @@
+.discover {
+   height: calc(100vh - 50px);
+   overflow: hidden;
+}
+
+.discover .discover_header {
+   width: 100%;
+   text-align: center;
+   padding: 10px 0 ;
+   font-size: 20px;
+   font-weight: 500;
+   margin-bottom: 0;
+}
+
+.discover .discover_content-nav {
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 0 16px;
+   cursor: pointer;
+   border-bottom: 1px solid #ccc;
+}
+
+.discover .discover_content-nav__item.active {
+   color: #000;
+}
+
+.discover .discover_content-nav__item {
+   color: #999;
+   padding: 10px;
+   display: flex;
+   align-items: center;
+}
+
+.discover .discover_content-nav__item p{
+   font-size: 16px;
+   font-weight: 500;
+}
+
+.discover_container {
+   position: relative;
+}
+
+.discover_container .discover_border{
+   position: absolute;
+   width: 100px;
+   height: 2px;
+   bottom: 1px;
+   background-color: #000;
+}
+
+.discover .list_user_content {
+   overflow-y:auto;
+   overflow-x: hidden;
+}

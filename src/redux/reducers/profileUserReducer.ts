@@ -1,4 +1,4 @@
-import { GET_PROFILE_USER,IProfileType, FOLLOW, UNFOLLOW } from "../types/profileUser";
+import { GET_PROFILE_USER,IProfileType, FOLLOW, UNFOLLOW, UPDATE_LIST_POST_PROFILE } from "../types/profileUser";
 import { IUser } from "../../utils/Typescript";
 
 
@@ -24,6 +24,13 @@ export const profileUserReducer = (state = initState, action: IProfileType) => {
             ))
          }
       case UNFOLLOW: 
+         return {
+            ...state,
+            users: state.users.map((user: IUser) => (
+               user._id === action.payload._id ? action.payload : user
+            ))
+         }
+      case UPDATE_LIST_POST_PROFILE:
          return {
             ...state,
             users: state.users.map((user: IUser) => (

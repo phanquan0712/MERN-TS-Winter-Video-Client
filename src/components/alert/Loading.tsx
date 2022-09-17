@@ -5,7 +5,7 @@ import Winter from '../../images/Winter.gif'
 const Loading = () => {
    return (
       <div className='position-fixed w-100 h-100 text-center loading'
-         style={{ background: '#0007', color: '#fff', top: 0, left: 0, zIndex: 100 }}
+         style={{ background: '#0007', color: '#fff', top: 0, left: 0, zIndex: 1111 }}
       >
          <svg
             style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}

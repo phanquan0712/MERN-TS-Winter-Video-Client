@@ -4,9 +4,11 @@ import AuthFooter from './AuthFooter'
 import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
 import { useSelector, useDispatch } from 'react-redux'
-import { RootStore } from '../../utils/Typescript'
+import { RootStore, IParams } from '../../utils/Typescript'
 import { AUTH_MODAL } from '../../redux/types/authType'
 import SocialLogin from './SocialLogin'
+import { useParams } from 'react-router-dom'
+
 
 interface IProps {
    active?: string
@@ -16,6 +18,7 @@ const LoginModal = ({ active }: IProps) => {
    const [loginOrRegister, setLoginOrRegister] = useState<boolean>(true)
    const [loginNormal, setLoginNormal] = useState<boolean>(false)
    const { authModal } = useSelector((state: RootStore) => state)
+   const { page, slug }: IParams = useParams()
    const dispatch = useDispatch()
    const authListLogin = [
       { text: 'Continue with Google', icon: 'fab fa-google', color: '#dc4e41' },

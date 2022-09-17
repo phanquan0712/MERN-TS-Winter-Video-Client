@@ -12,6 +12,11 @@ export const DELETE_POST = "DELETE_POST";
 export const DELETE_COMMENT_POST = "DELETE_COMMENT_POST";
 export const DELETE_ANSWER_COMMENT_POST = "DELETE_ANSWER_COMMENT_POST";
 export const UPDATE_POST = "UPDATE_POST";
+export const UPDATE_LIST_POST_FL = "UPDATE_LIST_POST_FL";
+export const UPDATE_LIST_POST_HP = "UPDATE_LIST_POST_HP";
+export const SEARCH_POST = "SEARCH_POST";
+export const MDSR = "MDSR";
+export const LIST_POST_NAME = "LIST_POST_NAME";
 
 export interface ILikePostType {
   type: typeof LIKE_POST | typeof UNLIKE_POST;
@@ -69,6 +74,41 @@ export interface IUpdatePostType {
   };
 }
 
+export interface IDeletePostType {
+  type: typeof DELETE_POST;
+  payload: string
+}
+
+export interface IUpdateListPostFLType {
+  type: typeof UPDATE_LIST_POST_FL;
+  payload: IPost;
+}
+
+export interface IUpdateListPostHpType {
+  type: typeof UPDATE_LIST_POST_HP;
+  payload: IPost;
+}
+
+export interface ISearchPostType {
+  type: typeof SEARCH_POST;
+  payload: IPost[]
+}
+
+export interface IMdSrType {
+  type: typeof MDSR;
+  payload: boolean;
+}
+
+export interface IListPostNameType {
+  type: typeof LIST_POST_NAME;
+  payload: {
+    listPostName: string;
+    listPostSubName: string;
+    idUser: string;
+  }
+}
+
+
 export type IPostType =
   | IUpdatePostType
   | IDeleteAnswerCommentPostType
@@ -79,4 +119,10 @@ export type IPostType =
   | ICreateCommentPostType
   | IGetDetailPostType
   | ILikePostType
-  | IGetPostFollowingType;
+  | IGetPostFollowingType
+  | IDeletePostType
+  | IUpdateListPostFLType
+  | IUpdateListPostHpType
+  | ISearchPostType
+  | IMdSrType
+  | IListPostNameType

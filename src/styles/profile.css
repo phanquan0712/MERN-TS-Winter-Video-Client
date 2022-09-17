@@ -3,7 +3,23 @@
 } */
 
 .right_side-profile {
-   animation: ListPost .2s ease-in-out;
+   padding: 24px 32px;
+}
+
+.profile_user::-webkit-scrollbar {
+   width: 5px;
+}
+
+.profile_user::-webkit-scrollbar-track {
+   background: #f1f1f1;
+}
+
+.profile_user::-webkit-scrollbar-thumb {
+   background: purple;
+}
+
+.profile_user_info {
+   /* animation: ListPost .2s ease-in; */
 }
 
 @keyframes ListPost {
@@ -19,13 +35,48 @@
    }
 }
 
-.profile_nav_item:nth-child(2):hover ~ .profile_nav_border.Video{
+.profile_nav_item:nth-child(2):hover ~ .profile_nav_border.Video {
    transform: translateX(200px) !important;
 }
 
 
-.profile_nav_item:nth-child(1):hover ~ .profile_nav_border.Liked{
+.profile_nav_item:nth-child(1):hover ~ .profile_nav_border.Liked {
    transform: translateX(0px) !important;
+}
+
+.profile_user .interface_responsive {
+   width: 240px;
+   flex: 0 0 240px;
+}
+
+.profile_user .interface_responsive .left_side {
+   width: 240px;
+}
+
+.interface_responsive {
+   z-index: 12;
+   width: 356px;
+   flex: 0 0 356px;
+}
+
+.profile_user .user_page {
+   flex: 1;
+}
+
+@media (max-width: 1080px) {
+   .interface_responsive {
+      width: 72px;
+      flex: 0 0 72px;
+   }
+
+   .profile_user .interface_responsive {
+      width: 72px;
+      flex: 0 0 72px;
+   }
+
+   .profile_user .interface_responsive .left_side {
+      width: 72px;
+   }
 }
 
 /* Edit Profile */
@@ -41,7 +92,7 @@
    width: 100%;
    overflow: auto;
    background-color: rgba(0, 0, 0, 0.5);
-   z-index: 12;
+   z-index: 100;
    animation: edit_profile_animation 500ms cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
 }
 
@@ -73,6 +124,7 @@
    background: #fff;
    height: 700px;
    width: auto;
+   max-width: calc(100vw - 32px);
    border-radius: 10px;
    animation: auth_box_animation 500ms ;
 }
@@ -143,4 +195,107 @@
    width: 100%;
    height: 100%;
    opacity: 0;
+}
+
+@media (max-width: 768px) {
+   .profile_user .interface_responsive {
+      display: none;
+   }
+
+   .profile_user .card_text {
+      display: none !important;
+   }
+
+   .profile_user .right_side-profile {
+      padding: 0;
+   }
+
+   .profile_user .header_profile {
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      position: relative;
+   }
+
+   
+
+   .profile_user .header_profile p {
+      font-size: 16px;
+      font-weight: bold;
+      color: #000;
+   }
+
+   .profile_user .header_profile .header_profile_options {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+   }
+
+   .profile_user .header_profile .arrow_prev_page {
+      position: absolute;
+      left: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+   }
+
+   .profile_user .profile_user_info {
+      flex-direction: column;
+      margin-top: 16px;
+   }
+
+   .profile_user .profile_user_sub_info div {
+      justify-content: center;
+   }
+
+   .profile_user .winterId {
+      font-size: 20px !important;
+      margin-top: 10px;
+      text-align: center;
+   }
+
+   .profile_user .profile_user_story.no-story {
+      text-align: center;
+   }
+
+   .profile_user .profile_user_story.story {
+      text-align: left;
+   }
+
+   .profile_user .text_margin {
+      margin-left: 0 !important;
+   }
+
+   .profile_user .post_thumb {
+      margin: 0 !important;
+      grid-gap: 1px;
+      padding:  24px 0 !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+   }
+
+   .profile_user .post_thumb .post_thumb_display {
+      border-radius: 0 !important;
+   }
+   .profile_user .post_thumb .post_thumb_display video {
+      border-radius: 0 !important;
+   }
+
+   .profile_user .post_thumb_display {
+      width: 129px !important;
+      min-width: auto !important;
+      height: 180px !important;
+   }
+
+   .profile_user .post_thumb_display img {
+      height: 100%;
+      width: 100%;
+   }
+
+   .profile_user {
+      height: calc(100vh - 49px);
+      overflow-x: hidden;
+      overflow-y: auto;
+      overscroll-behavior-y: contain;
+   }
 }

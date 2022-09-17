@@ -1,6 +1,6 @@
 import { GET_HOME_POST, IGetHomePostType } from "../types/homePostType";
 import { IPost } from "../../utils/Typescript";
-import { LIKE_POST, UNLIKE_POST, IPostType } from "../types/postType";
+import { LIKE_POST, UNLIKE_POST, IPostType, UPDATE_LIST_POST_HP } from "../types/postType";
 
 
 export interface IState {
@@ -10,7 +10,7 @@ export interface IState {
 
 const initState: IState = {
    posts: [],
-   total: 0 
+   total: 0 ,
 }
 
 export const homePostReducer = (state: IState = initState, action: IGetHomePostType | IPostType) => {
@@ -31,6 +31,13 @@ export const homePostReducer = (state: IState = initState, action: IGetHomePostT
                   post._id === action.payload._id ? action.payload : post
                ))
             }
+      case UPDATE_LIST_POST_HP:
+         return {
+            ...state,
+            posts: state.posts.map(item => (
+               item._id === action.payload._id ? action.payload : item
+            ))
+         }
       default:
          return state;
    }

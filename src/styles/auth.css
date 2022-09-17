@@ -5,7 +5,7 @@
    right: 0;
    bottom: 0;
    display: none;
-   z-index: 15;
+   z-index: 9999;
 }
 .auth_page.active {
    display: block;
@@ -19,6 +19,7 @@
    width: 100%;
    height: 100vh;
    background-color: rgba(0, 0, 0, 0.5);
+   z-index: 1000;
    animation: auth_overlay_animation 500ms cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
 }
 
@@ -58,6 +59,7 @@
    background-color: #ffffff;
    padding: 15px 25px;
    border-radius: 10px;
+   z-index: 1001;
    animation: auth_box_animation 500ms cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
 }
 
@@ -139,4 +141,62 @@
    transform: translateY(-50%);
    right: 10px;
    cursor: pointer;
+}
+
+.auth_modal_mb {
+   height: 100vh;
+   width: 100%;
+}
+
+@media (max-width: 768px) {
+   .auth_page .auth_box {
+      width: 100% !important;
+      height: 100vh !important;
+      max-height: 100vh !important;
+      border-radius: 0 !important;
+   }
+
+   .no_login {
+      height: calc(100vh - 49px);
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+   }
+   
+   .no_login .no_login-title {
+      font-size: 18px;
+      font-weight: bold;
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      width: 100%;
+      text-align: center;
+   }
+   
+   .no_login .no_login_content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+   }
+
+   .no_login .no_login_content img {
+      width: 100%;
+      object-fit: cover;
+   }
+
+   .no_login .no_login_content p {
+      margin: 20px 0;
+      font-size: 16px;
+      font-weight: 400;
+      color: #666;
+   }
+
+   .no_login .no_login_content-btn {
+      background-color: rgb(254, 44, 85);
+      padding: 8px 36px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: bold;
+   }
 }

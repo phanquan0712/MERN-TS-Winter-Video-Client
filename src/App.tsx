@@ -10,10 +10,16 @@ import { IParams, RootStore } from './utils/Typescript'
 import { refreshToken } from './redux/actions/authActions';
 import { gapi } from "gapi-script";
 import Home from './pages/home';
-import { getSuggestionUser } from './redux/actions/userActions';
+import { getSuggestionUser, getSuggestionUserWhenNoLogin } from './redux/actions/userActions';
 import { getHomePost, getPostFollowing } from './redux/actions/postActions';
-import { useParams } from 'react-router-dom'
+import { useParams, useLocation } from 'react-router-dom'
 import AuthModal from './components/auth/AuthModal';
+import io from 'socket.io-client';
+import SocketClient from './SocketClient';
+import { SOCKET } from './redux/types/socketType';
+import FooterContainer from './components/home/FooterContainer';
+import { getNotifies } from './redux/actions/notifyAction';
+import { getConversations } from './redux/actions/messageAction';
 
 
 function App() {
@@ -24,21 +30,41 @@ function App() {
       plugin_name: "chat",
     });
   });
+
+
   const { page, slug }: IParams = useParams()
   const { alert, auth, authModal } = useSelector((state: RootStore) => state)
   const dispatch = useDispatch<any>()
+
+  useEffect(() => {
+    if (!auth.access_token) return
+    dispatch(getConversations(auth))
+  }, [auth, dispatch])
+
+
   useEffect(() => {
     dispatch(refreshToken())
+    const socket = io()
+    dispatch({ type: SOCKET, payload: socket })
+    return () => { socket.close() }
   }, [dispatch])
 
   useEffect(() => {
     if (auth.access_token) {
-      dispatch(getSuggestionUser(auth.access_token))
+      dispatch(getNotifies(auth.access_token))
     }
   }, [auth.access_token, dispatch])
 
   useEffect(() => {
-      dispatch(getHomePost())
+    if (auth.access_token) {
+      dispatch(getSuggestionUser(auth.access_token))
+    } else {
+      dispatch(getSuggestionUserWhenNoLogin())
+    }
+  }, [auth.access_token, dispatch])
+
+  useEffect(() => {
+    dispatch(getHomePost())
   }, [dispatch])
 
   useEffect(() => {
@@ -58,20 +84,28 @@ function App() {
           alert.success &&
           toast.success(alert.success)
         }
+        {auth.access_token && <SocketClient />}
       </div>
       <Router>
-        <div style={{ marginBottom: '60px' }}>
-          <Header />
-        </div>
-        <AuthModal active={authModal ? 'active' : ''}  />
+        {
+          window.innerWidth > 768 &&
+          <div style={{ marginBottom: '60px' }}>
+            <Header />
+          </div>
+        }
+        <AuthModal active={authModal ? 'active' : ''} />
         <Alert />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/:page" element={<PageRender />} />
           <Route path="/:page/:slug" element={<PageRender />} />
         </Routes>
+        {
+          window.innerWidth < 768 &&
+          <FooterContainer />
+        }
       </Router>
-      <ToastContainer
+      {/* <ToastContainer
         position="top-center"
         autoClose={5000}
         hideProgressBar={false}
@@ -83,6 +117,7 @@ function App() {
         theme='dark'
         pauseOnHover
       />
+      */ }
     </div>
   );
 }
