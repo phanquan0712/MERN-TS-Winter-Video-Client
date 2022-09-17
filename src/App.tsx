@@ -20,7 +20,7 @@ import { SOCKET } from './redux/types/socketType';
 import FooterContainer from './components/home/FooterContainer';
 import { getNotifies } from './redux/actions/notifyAction';
 import { getConversations } from './redux/actions/messageAction';
-
+import { API_URL } from './utils/config';
 
 function App() {
   gapi.load("client:auth2", () => {
@@ -43,10 +43,10 @@ function App() {
 
 
   useEffect(() => {
-    dispatch(refreshToken())
-    const socket = io()
+    dispatch(refreshToken());
+    const socket = io(API_URL)
     dispatch({ type: SOCKET, payload: socket })
-    return () => { socket.close() }
+    return () => {socket.close()}
   }, [dispatch])
 
   useEffect(() => {
