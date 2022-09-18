@@ -14,17 +14,27 @@ body {
   --doc-height: 100%;
 }
 
-html,
+@media (max-width: 768px) {
+  :root {
+    --doc-height: -webkit-fill-available;
+  }
+  html, body {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* html,
 body {
   padding: 0;
   margin: 0;
   height: 100vh;
   /* fallback for Js load */
   /* height: var(--doc-height); */
-}
+} */
 
 #root {
   height: 100%;
+  /* height: var(--doc-height); */
 }
 
 html {

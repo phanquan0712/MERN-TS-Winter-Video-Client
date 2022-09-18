@@ -1,6 +1,6 @@
 .discover {
-   height: calc(100vh - 50px);
-   overflow: hidden;
+   height: calc(100% - 49px);
+   overflow: auto hidden;
 }
 
 .discover .discover_header {
