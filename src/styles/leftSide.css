@@ -186,7 +186,7 @@
       perspective-origin: right top;
       top: 0;
       bottom: 0;
-      height: calc(100vh - 49px);
+      height: calc(100% - 49px);
       width: 75%;
       background: rgba(255, 255, 255, 1.0);
       position: fixed;
@@ -228,7 +228,7 @@
       left: 0;
       width: 100%;
       transform: translateX(-100%);
-      height: calc(100vh - 49px);
+      height: calc(100% - 49px);
       z-index: 101;
       animation: left_side .2s ease-in-out;
       transition: all .2s ease-in-out;

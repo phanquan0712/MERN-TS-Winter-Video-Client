@@ -157,7 +157,7 @@
    }
 
    .no_login {
-      height: calc(100vh - 49px);
+      height: calc(100% - 49px);
       width: 100%;
       display: flex;
       flex-direction: column;

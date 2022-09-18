@@ -1,6 +1,6 @@
 .setting {
    width: 100%;
-   height: calc(100vh - 49px);
+   height: calc(100% - 49px);
    display: flex;
    flex-direction: column;
    overflow: hidden;

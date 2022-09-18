@@ -42,7 +42,6 @@ ul {
 
 @media (max-width: 768px) {
   .home {
-    /* height: calc(100vh - 49px) */
   }
 
   .home .swiper {

@@ -293,7 +293,7 @@
    }
 
    .profile_user {
-      height: calc(100vh - 49px);
+      height: calc(100% - 49px);
       overflow-x: hidden;
       overflow-y: auto;
       overscroll-behavior-y: contain;

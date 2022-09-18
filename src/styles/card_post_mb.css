@@ -141,7 +141,7 @@
    }
 
    .add {
-      height: calc(100vh - 49px);
+      height: calc(100% - 49px);
       overflow-y: auto;
       padding: 0 !important;
       border-radius: 0 !important;
@@ -177,7 +177,7 @@
 }
 
 .home_list_post {
-   height: calc(100vh - 49px);
+   height: calc(100% - 49px);
    width: 100%;
 }
 
