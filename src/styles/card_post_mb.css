@@ -1,6 +1,6 @@
 @media (max-width: 768px) {
    .card_post_mb {
-      width: 100%;
+      width: 100% !important;
       height: 100%;
       position: relative;
    }
